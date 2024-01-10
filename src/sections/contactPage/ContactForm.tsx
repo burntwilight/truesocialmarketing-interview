@@ -8,13 +8,27 @@ import { API_URL } from '@/constants';
 type FormData = {
     name: string;
     email: string;
+    subject: string;
+    message: string;
+    phoneNumber: string;
 };
 
 const schema = yup.object().shape({
     name: yup.string().required('Name is required'),
     email: yup.string().email('Invalid email').required('Email is required'),
+    phoneNumber: yup
+        .string()
+        .required('Phone number is required')
+        .test(
+            'phone-number-length',
+            'Phone number should be 10 digits',
+            (value) => {
+                return value?.replace(/\D/g, '').length === 10;
+            }
+        ),
+    subject: yup.string().required('Subject is required'),
+    message: yup.string().required('Message is required'),
 });
-
 const ContactInner = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [showSuccess, SetShowSuccess] = useState(false);
@@ -32,12 +46,15 @@ const ContactInner = () => {
         setIsLoading(true);
 
         try {
-            const { name, email } = data;
+            const { name, email, subject, message, phoneNumber } = data;
 
             const formData = new FormData();
 
+            formData.set('your-subject', subject);
             formData.set('your-name', name);
             formData.set('your-email', email);
+            formData.set('phoneNumber', phoneNumber);
+            formData.append('your-message', message);
 
             const response = await axios.post(API_URL.contactForm, formData);
 
@@ -61,18 +78,18 @@ const ContactInner = () => {
     };
 
     return (
-        <section
-            id='contact-form'
-            className='container w-full max-w-xs mx-auto p-6'
-        >
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <section id='contact-form' className='container'>
+            <form
+                className='w-full max-w-xs mx-auto p-6 bg-white rounded shadow-md'
+                onSubmit={handleSubmit(onSubmit)}
+            >
                 <label className='block mb-2 text-lg font-semibold text-gray-800'>
                     Name
                 </label>
                 <input
                     type='text'
                     {...register('name')}
-                    className='w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500'
+                    className='w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
                 />
                 <p className='text-red-600'>{errors.name?.message}</p>
 
@@ -82,14 +99,40 @@ const ContactInner = () => {
                 <input
                     type='text'
                     {...register('email')}
-                    className='w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500'
+                    className='w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
                 />
                 <p className='text-red-600'>{errors.email?.message}</p>
 
-                <button
-                    type='submit'
-                    className='w-full text-black hover:text-gray-600 px-4 py-2 rounded-md focus:outline-none mt-4'
-                >
+                <label className='block mb-2 text-lg font-semibold text-gray-800'>
+                    Phone Number
+                </label>
+                <input
+                    type='text'
+                    {...register('phoneNumber')}
+                    className='w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                />
+                <p className='text-red-600'>{errors.phoneNumber?.message}</p>
+
+                <label className='block mb-2 text-lg font-semibold text-gray-800'>
+                    Subject
+                </label>
+                <input
+                    type='text'
+                    {...register('subject')}
+                    className='w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                />
+                <p className='text-red-600'>{errors.subject?.message}</p>
+
+                <label className='block mb-2 text-lg font-semibold text-gray-800'>
+                    Message
+                </label>
+                <textarea
+                    {...register('message')}
+                    className='w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                ></textarea>
+                <p className='text-red-600'>{errors.message?.message}</p>
+
+                <button type='submit' className='w-full text-black mt-4'>
                     {isLoading ? 'Sending...' : 'Submit'}
                 </button>
 
