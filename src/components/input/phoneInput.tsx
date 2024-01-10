@@ -1,5 +1,5 @@
 import React, { memo, forwardRef, Ref } from "react";
-import Input from "./";
+import Input from ".";
 import { FieldError } from "react-hook-form";
 
 interface PhoneInputProps {

@@ -1,5 +1,37 @@
-const Hero = () => {
-  return <section className="hero"></section>;
+import FilmCard from '@/components/ui/FilmCard';
+
+interface FilmDetails {
+    director: string;
+    title: string;
+}
+
+interface HeroProps {
+    filmDetails: FilmDetails[];
+}
+
+const Hero: React.FC<HeroProps> = ({ filmDetails }: any) => {
+    const imageUrls = [
+        '/filmcard-images/starwars-1.jpg',
+        '/filmcard-images/starwars-2.jpg',
+        '/filmcard-images/starwars-3.jpg',
+        '/filmcard-images/starwars-4.jpg',
+        '/filmcard-images/starwars-5.jpg',
+        '/filmcard-images/starwars-6.jpg',
+    ];
+    return (
+        <section className='container'>
+            <div className='grid-container'>
+                {filmDetails.map((film: FilmDetails, index: number) => (
+                    <FilmCard
+                        key={film.title}
+                        imageUrl={imageUrls[index]}
+                        filmTitle={film.title}
+                        director={film.director}
+                    />
+                ))}
+            </div>
+        </section>
+    );
 };
 
 export default Hero;

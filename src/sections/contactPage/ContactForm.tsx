@@ -77,7 +77,71 @@ const ContactInner = () => {
     }, 5000);
   };
 
-  return <section id="contact-form"></section>;
-};
+  return (
+    <section id="contact-form" className="container w-full max-w-xs mx-auto p-6 bg-white rounded shadow-md">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <label className="block mb-2 text-lg font-semibold text-gray-800">
+          Name
+        </label>
+        <input
+          type="text"
+          {...register("name")}
+          className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500"
+        />
+        <p className="text-red-600">{errors.name?.message}</p>
+
+        <label className="block mb-2 text-lg font-semibold text-gray-800">
+          Email
+        </label>
+        <input
+          type="text"
+          {...register("email")}
+          className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500"
+        />
+        <p className="text-red-600">{errors.email?.message}</p>
+
+        <label className="block mb-2 text-lg font-semibold text-gray-800">
+          Phone Number
+        </label>
+        <input
+          type="text"
+          {...register("phoneNumber")}
+          className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500"
+        />
+        <p className="text-red-600">{errors.phoneNumber?.message}</p>
+
+        <label className="block mb-2 text-lg font-semibold text-gray-800">
+          Subject
+        </label>
+        <input
+          type="text"
+          {...register("subject")}
+          className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500"
+        />
+        <p className="text-red-600">{errors.subject?.message}</p>
+
+        <label className="block mb-2 text-lg font-semibold text-gray-800">
+          Message
+        </label>
+        <textarea
+          {...register("message")}
+          className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:border-blue-500"
+        ></textarea>
+        <p className="text-red-600">{errors.message?.message}</p>
+
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 focus:outline-none"
+        >
+          {isLoading ? "Sending..." : "Submit"}
+        </button>
+
+        {showSuccess && (
+          <p className="mt-4 text-green-600">Message sent successfully!</p>
+        )}
+      </form>
+    </section>
+  );
+}
 
 export default ContactInner;
