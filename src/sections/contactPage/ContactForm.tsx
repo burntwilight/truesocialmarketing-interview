@@ -79,7 +79,7 @@ const ContactInner = () => {
 
     return (
         <section id='contact-form' className='container flex flex-col'>
-          <h1>Contact Us</h1>
+            <h1>Contact Us</h1>
             <form
                 className='w-full max-w-lg mx-auto p-6 bg-white rounded shadow-md'
                 onSubmit={handleSubmit(onSubmit)}

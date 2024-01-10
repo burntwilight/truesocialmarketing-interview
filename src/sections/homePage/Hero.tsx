@@ -20,7 +20,12 @@ const Hero: React.FC<HeroProps> = ({ filmDetails }: any) => {
     ];
     return (
         <section className='container'>
-            <div className='grid-container'>
+            <div
+                className='
+                grid-container
+                grid grid-cols-3 gap-6
+            '
+            >
                 {filmDetails.map((film: FilmDetails, index: number) => (
                     <FilmCard
                         key={film.title}
