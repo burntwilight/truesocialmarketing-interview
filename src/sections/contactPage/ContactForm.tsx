@@ -31,7 +31,7 @@ const schema = yup.object().shape({
 });
 const ContactInner = () => {
     const [isLoading, setIsLoading] = useState(false);
-    const [showSuccess, SetShowSuccess] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
     const {
         register,
         handleSubmit,
@@ -70,17 +70,18 @@ const ContactInner = () => {
     };
 
     const showMessage = () => {
-        SetShowSuccess(true);
+        setShowSuccess(true);
 
         setTimeout(() => {
-            SetShowSuccess(false);
+            setShowSuccess(false);
         }, 5000);
     };
 
     return (
-        <section id='contact-form' className='container'>
+        <section id='contact-form' className='container flex flex-col'>
+          <h1>Contact Us</h1>
             <form
-                className='w-full max-w-xs mx-auto p-6 bg-white rounded shadow-md'
+                className='w-full max-w-lg mx-auto p-6 bg-white rounded shadow-md'
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <label className='block mb-2 text-lg font-semibold text-gray-800'>
@@ -89,7 +90,7 @@ const ContactInner = () => {
                 <input
                     type='text'
                     {...register('name')}
-                    className='w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
                 />
                 <p className='text-red-600'>{errors.name?.message}</p>
 
@@ -99,7 +100,7 @@ const ContactInner = () => {
                 <input
                     type='text'
                     {...register('email')}
-                    className='w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
                 />
                 <p className='text-red-600'>{errors.email?.message}</p>
 
@@ -109,7 +110,7 @@ const ContactInner = () => {
                 <input
                     type='text'
                     {...register('phoneNumber')}
-                    className='w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
                 />
                 <p className='text-red-600'>{errors.phoneNumber?.message}</p>
 
@@ -119,7 +120,7 @@ const ContactInner = () => {
                 <input
                     type='text'
                     {...register('subject')}
-                    className='w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
                 />
                 <p className='text-red-600'>{errors.subject?.message}</p>
 
