@@ -19,7 +19,7 @@ const FilmCard: React.FC<FilmCardProps> = ({
             >
                 <Image
                     src={imageUrl}
-                    alt={filmTitle}
+                    alt={`${filmTitle} poster image`}
                     width={1920}
                     height={2400}
                     className='object-cover w-full h-full transition-transform duration-200 transform hover:scale-105 rounded-md'
