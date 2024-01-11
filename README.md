@@ -25,7 +25,7 @@ The project will have two pages:
 
 1. Home page: This page will display a 3x3 column layout and a list of cards with the title of the film and the director. The cards will be populated with data Star Wars gql api. Please make sure the cards are mobile responsive.
 
-2. Contact page: This page will have a form with the following fields, name and email. The form will be validated and the user will be notified if the form is valid or not on the frontend. You will not need to use the API for this page, just the form validation on the frontend.
+2. Contact page: This page will have a form with the following fields: name, email, phone, subject, and message. The form will be validated and the user will be notified if the form is valid or not on the frontend. You will not need to use the API for this page, just the form validation on the frontend.
 
 ### Film Card
 
@@ -37,6 +37,9 @@ Form validation can be done with any library of your choice. The form should inc
 
 - Name
 - Email
+- Phone
+- Subject
+- Message
 
 Check validation for the name that its not empty and that the email is a valid email address.
 
