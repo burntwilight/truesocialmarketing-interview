@@ -85,7 +85,7 @@ const ContactInner = () => {
                 Contact Us
             </h1>
             <form
-                className='w-full max-w-md mx-auto p-6 bg-white rounded shadow-md'
+                className='w-full max-w-md mx-auto p-6 bg-white rounded-md shadow-md border'
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <label className='block mb-2 text-lg font-semibold text-gray-800'>
@@ -94,7 +94,7 @@ const ContactInner = () => {
                 <input
                     type='text'
                     {...register('name')}
-                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-blue-600'
                 />
                 <p className='text-red-600'>{errors.name?.message}</p>
 
@@ -104,7 +104,7 @@ const ContactInner = () => {
                 <input
                     type='text'
                     {...register('email')}
-                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-blue-600'
                 />
                 <p className='text-red-600'>{errors.email?.message}</p>
 
@@ -114,7 +114,7 @@ const ContactInner = () => {
                 <input
                     type='text'
                     {...register('phoneNumber')}
-                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-blue-600'
                 />
                 <p className='text-red-600'>{errors.phoneNumber?.message}</p>
 
@@ -124,7 +124,7 @@ const ContactInner = () => {
                 <input
                     type='text'
                     {...register('subject')}
-                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                    className='form-input-field w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-blue-600'
                 />
                 <p className='text-red-600'>{errors.subject?.message}</p>
 
@@ -133,13 +133,13 @@ const ContactInner = () => {
                 </label>
                 <textarea
                     {...register('message')}
-                    className='w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-black'
+                    className='w-full px-4 py-2 mb-4 border border-gray-600 rounded-md focus:border-blue-600'
                 ></textarea>
                 <p className='text-red-600'>{errors.message?.message}</p>
 
                 <button
                     type='submit'
-                    className='w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition-all'
+                    className='w-full h-12 bg-red-500 text-white py-2 rounded-full hover:bg-red-600 transition-all'
                 >
                     {isLoading ? 'Sending...' : 'Submit'}
                 </button>

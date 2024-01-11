@@ -39,7 +39,7 @@ const FilmCardSection: React.FC<FilmCardSectionProps> = ({
     ];
     return (
         <section ref={ref} className='container'>
-            <h2 className='mb-12'>Featured Starwars Movies</h2>
+            <h2 className='mb-12 font-bold'>Featured Movies</h2>
             <div
                 className='
                 grid-container
@@ -56,6 +56,7 @@ const FilmCardSection: React.FC<FilmCardSectionProps> = ({
                     />
                 ))}
             </div>
+            <div className='text-3xl text-center'>...</div>
         </section>
     );
 };
