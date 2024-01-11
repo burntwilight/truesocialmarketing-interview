@@ -7,7 +7,7 @@ type ImageProps = {
   alt: string;
 };
 
-const Image = ({ className, imageClassName, src, alt }: ImageProps) => {
+const CustomImage = ({ className, imageClassName, src, alt }: ImageProps) => {
   return (
     <div className={`relative ${className}`}>
       <NextImage className={imageClassName} src={src} alt={alt} fill={true} />
@@ -15,4 +15,4 @@ const Image = ({ className, imageClassName, src, alt }: ImageProps) => {
   );
 };
 
-export default Image;
+export default CustomImage;

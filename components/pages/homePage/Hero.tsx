@@ -6,10 +6,9 @@ const Hero = () => {
         <section className='relative h-screen overflow-hidden'>
             <div className='absolute inset-0'>
                 <Image
-                    layout='fill'
-                    objectFit='cover'
                     src={heroBackground}
                     alt='Movie Theater Image'
+                    className='object-cover w-full h-full'
                 />
                 <div className='absolute inset-0 bg-black opacity-50'></div>
             </div>

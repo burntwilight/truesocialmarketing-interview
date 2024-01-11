@@ -1,3 +1,8 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { useAnimation, useInView } from 'framer-motion';
+
 import FilmCard from '../../ui/FilmCard';
 
 interface FilmDetails {
@@ -12,6 +17,18 @@ interface FilmCardSectionProps {
 const FilmCardSection: React.FC<FilmCardSectionProps> = ({
     filmDetails,
 }: any) => {
+    const ref = useRef(null);
+
+    const isInView = useInView(ref);
+
+    const mainControls = useAnimation();
+
+    useEffect(() => {
+        if (isInView) {
+            mainControls.start('visible');
+        }
+    }, [isInView]);
+
     const imageUrls = [
         '/filmcard-images/starwars-1.jpg',
         '/filmcard-images/starwars-2.jpg',
@@ -21,7 +38,7 @@ const FilmCardSection: React.FC<FilmCardSectionProps> = ({
         '/filmcard-images/starwars-6.jpg',
     ];
     return (
-        <section className='container'>
+        <section ref={ref} className='container'>
             <h2 className='mb-12'>Featured Starwars Movies</h2>
             <div
                 className='
@@ -35,6 +52,7 @@ const FilmCardSection: React.FC<FilmCardSectionProps> = ({
                         imageUrl={imageUrls[index]}
                         filmTitle={film.title}
                         director={film.director}
+                        controls={mainControls}
                     />
                 ))}
             </div>

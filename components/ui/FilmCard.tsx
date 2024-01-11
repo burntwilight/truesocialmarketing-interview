@@ -1,18 +1,30 @@
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 interface FilmCardProps {
     imageUrl: string;
     filmTitle: string;
     director: string;
+    controls: any;
 }
 
 const FilmCard: React.FC<FilmCardProps> = ({
     imageUrl,
     filmTitle,
     director,
+    controls,
 }) => {
     return (
-        <div key={filmTitle} className='mb-8 md:mb-12 lg:mb-16'>
+        <motion.div
+            key={filmTitle}
+            initial='hidden'
+            animate={controls}
+            className='mb-8 md:mb-12 lg:mb-16'
+            variants={{
+                visible: { opacity: 1, x: 0 },
+                hidden: { opacity: 0, x: 100 },
+            }}
+        >
             <div
                 className='
                 relative overflow-hidden rounded-md'
@@ -31,7 +43,7 @@ const FilmCard: React.FC<FilmCardProps> = ({
                 </h2>
                 <p className='text-center text-gray-600'>{director}</p>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
