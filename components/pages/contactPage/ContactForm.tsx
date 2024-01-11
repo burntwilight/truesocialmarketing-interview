@@ -88,50 +88,55 @@ const ContactInner = () => {
                 className='w-full max-w-md mx-auto p-6 bg-white rounded-md shadow-md border'
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <label className='block mb-2 text-lg font-semibold text-gray-800'>
+                <label htmlFor='name' className='block mb-2 text-lg font-semibold text-gray-800'>
                     Name
                 </label>
                 <input
+                    id='name'
                     type='text'
                     {...register('name')}
                     className='form-input-field w-full px-4 py-2 mb-4 border border-gray-400 rounded-md focus:border-blue-600 shadow-inner'
                 />
                 <p className='text-red-600'>{errors.name?.message}</p>
 
-                <label className='block mb-2 text-lg font-semibold text-gray-800'>
+                <label htmlFor='email' className='block mb-2 text-lg font-semibold text-gray-800'>
                     Email
                 </label>
                 <input
+                    id='email'
                     type='text'
                     {...register('email')}
                     className='form-input-field w-full px-4 py-2 mb-4 border border-gray-400 rounded-md focus:border-blue-600 shadow-inner'
                 />
                 <p className='text-red-600'>{errors.email?.message}</p>
 
-                <label className='block mb-2 text-lg font-semibold text-gray-800'>
+                <label htmlFor='phone-number' className='block mb-2 text-lg font-semibold text-gray-800'>
                     Phone Number
                 </label>
                 <input
+                    id='phone-number'
                     type='text'
                     {...register('phoneNumber')}
                     className='form-input-field w-full px-4 py-2 mb-4 border border-gray-400 rounded-md focus:border-blue-600 shadow-inner'
                 />
                 <p className='text-red-600'>{errors.phoneNumber?.message}</p>
 
-                <label className='block mb-2 text-lg font-semibold text-gray-800'>
+                <label htmlFor='subject' className='block mb-2 text-lg font-semibold text-gray-800'>
                     Subject
                 </label>
                 <input
+                    id='subject'
                     type='text'
                     {...register('subject')}
                     className='form-input-field w-full px-4 py-2 mb-4 border border-gray-400 rounded-md focus:border-blue-600 shadow-inner'
                 />
                 <p className='text-red-600'>{errors.subject?.message}</p>
 
-                <label className='block mb-2 text-lg font-semibold text-gray-800'>
+                <label htmlFor='message' className='block mb-2 text-lg font-semibold text-gray-800'>
                     Message
                 </label>
                 <textarea
+                    id='message'
                     {...register('message')}
                     className='w-full px-4 py-2 mb-4 border border-gray-400 rounded-md focus:border-blue-600 shadow-inner'
                 ></textarea>
