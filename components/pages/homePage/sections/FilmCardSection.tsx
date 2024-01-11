@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useAnimation, useInView } from 'framer-motion';
 
-import FilmCard from '../../ui/FilmCard';
+import FilmCard from '../../../ui/FilmCard';
 
 interface FilmDetails {
     director: string;

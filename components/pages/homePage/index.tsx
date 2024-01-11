@@ -1,5 +1,5 @@
-import FilmCardSection from './FilmCardSection';
-import Hero from './Hero';
+import FilmCardSection from './sections/FilmCardSection';
+import Hero from './sections/Hero';
 
 const HomePage = ({ filmDetails }: any) => {
     return (

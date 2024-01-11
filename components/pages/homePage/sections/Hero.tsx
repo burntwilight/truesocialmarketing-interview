@@ -71,7 +71,19 @@ const Hero = () => {
                     // variants={buttonVariants}
                     className='flex justify-center'
                 >
-                    <button className='bg-red-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-red-600 transition duration-300'>
+                    <button
+                        className='
+                    bg-red-500 
+                    text-white 
+                    px-6 
+                    py-3 
+                    rounded-full 
+                    text-lg 
+                    font-semibold 
+                    hover:bg-red-600 
+                    transition 
+                    duration-300'
+                    >
                         Get Started
                     </button>
                 </motion.div>
