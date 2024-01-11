@@ -1,9 +1,11 @@
+import FilmCardSection from './FilmCardSection';
 import Hero from './Hero';
 
 const HomePage = ({ filmDetails }: any) => {
     return (
         <>
-            <Hero filmDetails={filmDetails} />
+            <Hero />
+            <FilmCardSection filmDetails={filmDetails} />
         </>
     );
 };

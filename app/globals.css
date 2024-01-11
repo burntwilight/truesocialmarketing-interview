@@ -37,36 +37,3 @@ p {
 button {
     @apply flex-none rounded-md px-3.5 py-2.5 text-sm font-semibold;
 }
-
-/* Hero grid styling */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-}
-
-/* Contact page form styling due to tailwind issue */
-#contact-form {
-    gap: 20px;
-    align-items: center;
-}
-button {
-    width: 100%;
-    padding: 10px;
-    color: black;
-    background-color: #e6e6e6 !important;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-button:hover {
-    background-color: #919191 !important;
-}
-.text-success {
-    margin-top: 10px;
-    color: #38a169;
-}
-form p {
-    color: rgb(255, 48, 48);
-}

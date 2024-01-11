@@ -1,40 +1,35 @@
-import FilmCard from '../../ui/FilmCard';
+import heroBackground from '@/public/hero-background.jpg';
+import Image from 'next/image';
 
-
-interface FilmDetails {
-    director: string;
-    title: string;
-}
-
-interface HeroProps {
-    filmDetails: FilmDetails[];
-}
-
-const Hero: React.FC<HeroProps> = ({ filmDetails }: any) => {
-    const imageUrls = [
-        '/filmcard-images/starwars-1.jpg',
-        '/filmcard-images/starwars-2.jpg',
-        '/filmcard-images/starwars-3.jpg',
-        '/filmcard-images/starwars-4.jpg',
-        '/filmcard-images/starwars-5.jpg',
-        '/filmcard-images/starwars-6.jpg',
-    ];
+const Hero = () => {
     return (
-        <section className='container'>
-            <div
-                className='
-                grid-container
-                grid grid-cols-3 gap-6
-            '
-            >
-                {filmDetails.map((film: FilmDetails, index: number) => (
-                    <FilmCard
-                        key={film.title}
-                        imageUrl={imageUrls[index]}
-                        filmTitle={film.title}
-                        director={film.director}
-                    />
-                ))}
+        <section className='relative h-screen overflow-hidden'>
+            <div className='absolute inset-0'>
+                <Image
+                    layout='fill'
+                    objectFit='cover'
+                    src={heroBackground}
+                    alt='Movie Theater Image'
+                />
+                <div className='absolute inset-0 bg-black opacity-50'></div>
+            </div>
+
+            <div className='container mx-auto flex flex-col justify-center h-full relative z-10'>
+                <h1 className='text-4xl lg:text-6xl font-bold text-white leading-tight mb-4 text-center lg:text-left'>
+                    Discover Your Favorite Starwars Movies
+                </h1>
+
+                <p className='text-lg lg:text-xl text-gray-300 mb-8 text-center lg:text-left'>
+                    Dive into the expansive world of Star Wars movies. Explore
+                    the epic saga across genres and find the perfect movie for
+                    every mood in a galaxy far, far away
+                </p>
+
+                <div className='flex justify-center lg:justify-start'>
+                    <button className='bg-red-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-red-600 transition duration-300'>
+                        Get Started
+                    </button>
+                </div>
             </div>
         </section>
     );

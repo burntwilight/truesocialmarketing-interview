@@ -80,10 +80,12 @@ const ContactInner = () => {
     };
 
     return (
-        <section id='contact-form' className='container flex flex-col'>
-            <h1>Contact Us</h1>
+        <section id='contact-form' className='container mx-auto my-8'>
+            <h1 className='text-3xl font-semibold text-center mb-6'>
+                Contact Us
+            </h1>
             <form
-                className='w-full max-w-lg mx-auto p-6 bg-white rounded shadow-md'
+                className='w-full max-w-md mx-auto p-6 bg-white rounded shadow-md'
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <label className='block mb-2 text-lg font-semibold text-gray-800'>
@@ -135,12 +137,15 @@ const ContactInner = () => {
                 ></textarea>
                 <p className='text-red-600'>{errors.message?.message}</p>
 
-                <button type='submit' className='w-full text-black mt-4'>
+                <button
+                    type='submit'
+                    className='w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition-all'
+                >
                     {isLoading ? 'Sending...' : 'Submit'}
                 </button>
 
                 {showSuccess && (
-                    <p className='mt-4 text-green-600'>
+                    <p className='mt-4 text-green-600 text-center'>
                         Message sent successfully!
                     </p>
                 )}

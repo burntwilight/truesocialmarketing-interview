@@ -1,11 +1,11 @@
-import ContactForm from "./ContactForm";
+import ContactForm from './ContactForm';
 
 const ContactPage = () => {
-  return (
-    <>
-      <ContactForm />
-    </>
-  );
+    return (
+        <>
+            <ContactForm />
+        </>
+    );
 };
 
 export default ContactPage;
