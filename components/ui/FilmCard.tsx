@@ -42,7 +42,10 @@ const FilmCard: React.FC<FilmCardProps> = ({
             </div>
             <div className='my-2'>
                 <h2 className='text-center text-base lg:text-xl xl:text-2xl font-bold line-clamp-1 overflow-ellipsis'>
-                    <Link href={'#'} className='hover:text-gray-600 transition-colors'>
+                    <Link
+                        href={'#'}
+                        className='hover:text-gray-600 transition-colors'
+                    >
                         {filmTitle}
                     </Link>
                 </h2>

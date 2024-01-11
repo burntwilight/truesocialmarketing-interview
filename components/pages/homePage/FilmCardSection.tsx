@@ -39,11 +39,10 @@ const FilmCardSection: React.FC<FilmCardSectionProps> = ({
     ];
     return (
         <section ref={ref} className='container'>
-            <h2 className='mb-12 font-bold'>Featured Movies</h2>
+            <h2 className='pb-12 font-bold'>Featured Movies</h2>
             <div
                 className='
-                grid-container
-                grid grid-cols-3 gap-6
+                grid grid-cols-3 gap-2 sm:gap-6
             '
             >
                 {filmDetails.map((film: FilmDetails, index: number) => (
@@ -56,7 +55,7 @@ const FilmCardSection: React.FC<FilmCardSectionProps> = ({
                     />
                 ))}
             </div>
-            <div className='text-3xl text-center'>...</div>
+            <div className='w-full h-12 text-3xl text-center'>...</div>
         </section>
     );
 };
